@@ -1,3 +1,4 @@
+<section class="main_content dashboard_part">
 <div class="container-fluid g-0">
             <div class="row">
                 <div class="col-lg-12 p-0">
@@ -27,7 +28,7 @@
                                         <h5><?= $_SESSION['auth']['name'] ?></h5>
                                     </div>
                                     <div class="profile_info_details">
-                                        <a href="#">My Profile </a>
+                                        <a href="./profile.php">My Profile </a>
                                         <a href="#">Settings</a>
                                         <a href="../controller/logout.php">Log Out </a>
                                     </div>

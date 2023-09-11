@@ -2,16 +2,16 @@
 session_start();
 
 if(isset($_POST['login'])){
-    
     include '../inc/env.php';
     
     $user_email = $_POST['email'];
     $user_pass = $_POST['password'];
     $enc_pass = sha1($user_pass);
 
+// data base data fetch
     $query=  "SELECT  email FROM users WHERE email= '$user_email'";
     $search_email = mysqli_query($conn, $query);
-
+// validation
     if(empty($user_email)){
         $_SESSION['error_email'] = "enter your email";
         header("Location: ../login.php");
@@ -22,6 +22,7 @@ if(isset($_POST['login'])){
         $pass_query=  "SELECT  * FROM users WHERE password= '$enc_pass' && email='$user_email'";
         $user = mysqli_query($conn, $pass_query);
         if($user->num_rows > 0){
+            // user data fetch
             $auth = mysqli_fetch_assoc($user);
             $_SESSION['auth'] = $auth;
             $_SESSION['auth_user'] = true;
